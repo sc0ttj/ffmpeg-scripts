@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# if ffmpeg not installed, exit now
+[ "$(which ffmpeg)" = "" ] && echo "Please install ffmpeg" && return 1
+
+# use ffmpeg to convert video files into HLS multi-part
+# video files. The output files end up in $HOME/<output-file>.m3u8
+# (note you don't need to give the '.m3u8' extension) to <output-file>
+#
+# Usage:
+#
+#    ff2hls <video-file>    \
+#           [resolution]    \
+#           [fps]           \
+#           [video-bitrate] \
+#           [audio-bitrate] \
+#           [output-file]
+#
+# Example: ff2hls file.mp4 1280x720 24 256K 128K my_hls_file
+
+BOLD='\033[1m'
+NC='\033[0m'
+YELLOW='\033[1;33m'
+
+# requires at least an input file, all other params are optional
+if [ ! "$1" -o "$1" = '-h' -o "$1" = '-help' -o "$1" = '--help' ];then
+    echo -e "Usage: \n"
+    echo -e "  ${BOLD}video2hls <video-file> <resolution> <fps> <video-bitrate> <audio-bitrate> <output-file>${NC} \n"
+    echo -e "Example: \n"
+    echo -e "  ${YELLOW}video2hls ./dir/file.mp4 640x480 24 1M 192K my_new_file.m3u8${NC} \n\n"
+    exit 1
+fi
+
+# set the options, fallback to defaults if values not set
+video_file="$1"               # full path to video file
+res="${2:-640x480}"           # 1280x720, 640x480, 640x360, etc
+fps="${3:-24}"                # 60, 30, 24, etc
+vbitrate="${4:-256K}"         # 128K, 192K, 256K, 512K, 993K, 1M, 2M
+abitrate="${5:-128K}"         # 128K, 192K, 256K, 512K, 993K, 1M, 2M
+filename="${6:-filename}"     # the output file
+
+# add extension if need be
+echo "${filename}" | grep -m1 -q '.m3u8\$' || filename="${filename}.m3u8"
+
+echo "Recording started, saving to $filename... "
+echo "Press Ctrl-C to finish."
+
+# run the command
+ffmpeg \
+    -v error \
+    -threads 0 \
+    -i "${video_file}" \
+    -s "${res}" \
+    -framerate "${fps}" \
+    -b:v "${vbitrate}" \
+    -b:a "${abitrate}" \
+    -c:a aac \
+    -f hls \
+    -start_number 0 \
+    -hls_list_size 0 \
+    -hls_time 10 \
+    "`~/${filename}`" &>/dev/null || exit 1
+
+exit 0

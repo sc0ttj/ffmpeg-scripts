@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# if ffmpeg not installed, exit now
+[ "$(which ffmpeg)" = "" ] && echo "Please install ffmpeg" && exit 1
+
+
+# This func records video, with no audio
+# Picks a file name for the output file based on availability:
+while [[ -f $HOME/video$n.mkv ]]
+do
+	n=$((n+1))
+done
+filename="$HOME/video$n.mkv"
+
+echo "Recording started, saving to $filename... "
+echo "Press Ctrl-C to finish."
+
+# The actual ffmpeg command:
+ffmpeg \
+  -f x11grab \
+  -s $(xdpyinfo | grep dimensions | awk '{print $2;}') \
+  -i :0.0 \
+  -c:v libx264 -qp 0 -r 30 "$filename" &>/dev/null || exit 1
+
