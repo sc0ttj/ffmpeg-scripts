@@ -34,13 +34,12 @@ Produces:
 
 ## Further reading
 
-- [FFmpeg-A-short-Guide](https://github.com/term7/FFmpeg-A-short-Guide
-- [FFmpeg-audio-visualization-tricks](https://lukaprincic.si/development-log/ffmpeg-audio-visualization-tricks
-- [FFmpeg Manual](https://ffmpeg.org/ffmpeg.html
+- [FFmpeg-A-short-Guide](https://github.com/term7/FFmpeg-A-short-Guide)
+- [FFmpeg-audio-visualization-tricks](https://lukaprincic.si/development-log/ffmpeg-audio-visualization-tricks)
+- [FFmpeg Manual](https://ffmpeg.org/ffmpeg.html)
 - [FFmpeg examples](https://hhsprings.bitbucket.io/docs/programming/examples/ffmpeg/index.html) (very detailed)
-- [Trac Wiki on FFmpeg]https://trac.ffmpeg.org/wiki (very detailed)
+- [Trac Wiki on FFmpeg]https://trac.ffmpeg.org/wiki) (very detailed)
 - [StackOverflow - generating-a-waveform-using-ffmpeg](https://stackoverflow.com/questions/32254818/generating-a-waveform-using-ffmpeg)
-- 
 
 ## Other repos
 
@@ -63,9 +62,4 @@ Produces:
 - [Thqrn/ffmpeg-scripts](https://github.com/Thqrn/ffmpeg-scripts) (windows .bat scripts, but could be useful)
 - [maitrungduc1410/9c640c61a7871390843af00ae1d8758e](https://gist.github.com/maitrungduc1410/9c640c61a7871390843af00ae1d8758e) (create a VOD HLS stream)
 - [hfossli/6003302](https://gist.github.com/hfossli/6003302) (reverse videos using ffmpeg and sox)
-- 
-- 
-- 
-- 
-- 
-- 
+
