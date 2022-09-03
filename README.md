@@ -38,7 +38,7 @@ Produces:
 - [FFmpeg-audio-visualization-tricks](https://lukaprincic.si/development-log/ffmpeg-audio-visualization-tricks)
 - [FFmpeg Manual](https://ffmpeg.org/ffmpeg.html)
 - [FFmpeg examples](https://hhsprings.bitbucket.io/docs/programming/examples/ffmpeg/index.html) (very detailed)
-- [Trac Wiki on FFmpeg]https://trac.ffmpeg.org/wiki) (very detailed)
+- [Trac Wiki on FFmpeg](https://trac.ffmpeg.org/wiki) (very detailed)
 - [StackOverflow - generating-a-waveform-using-ffmpeg](https://stackoverflow.com/questions/32254818/generating-a-waveform-using-ffmpeg)
 
 ## Other repos
