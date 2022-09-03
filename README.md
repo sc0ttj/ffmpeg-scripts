@@ -34,11 +34,12 @@ Produces:
 
 ## Further reading
 
-- [FFmpeg-A-short-Guide](https://github.com/term7/FFmpeg-A-short-Guide)
-- [FFmpeg-audio-visualization-tricks](https://lukaprincic.si/development-log/ffmpeg-audio-visualization-tricks)
 - [FFmpeg Manual](https://ffmpeg.org/ffmpeg.html)
-- [FFmpeg examples](https://hhsprings.bitbucket.io/docs/programming/examples/ffmpeg/index.html) (very detailed)
+- [FFmpeg-A-short-Guide](https://github.com/term7/FFmpeg-A-short-Guide)
+- [FFmpeg-audio-visualization-tricks](https://lukaprincic.si/development-log/ffmpeg-audio-visualization-tricks) - lots of examples
 - [Trac Wiki on FFmpeg](https://trac.ffmpeg.org/wiki) (very detailed)
+- [ffmprovisr](https://amiaopensource.github.io/ffmprovisr/) - categorised examples
+- [FFmpeg examples](https://hhsprings.bitbucket.io/docs/programming/examples/ffmpeg/index.html) (very detailed)
 - [StackOverflow - generating-a-waveform-using-ffmpeg](https://stackoverflow.com/questions/32254818/generating-a-waveform-using-ffmpeg)
 
 ## Other repos
