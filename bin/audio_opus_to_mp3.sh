@@ -16,7 +16,7 @@ The "bitrate" setting is optional (defaults to 320k).
   exit 1
 fi
 
-exec ffmpeg -i "$1" \
+ffmpeg -i "$1" \
   -ab "${2:-320k}" \
   -map_metadata 0:s:a:0 \
   -id3v2_version 3 \

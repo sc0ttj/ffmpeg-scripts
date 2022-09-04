@@ -41,7 +41,7 @@ case "$2" in
   65k)  bitrate="-q:a 9" ;;
 esac
 
-exec ffmpeg -v error \
+ffmpeg -v error \
   -threads 0 \
   -i "$1" \
   -codec:a libmp3lame \

@@ -4,6 +4,7 @@
 
 # Usage: images_to_video.sh img%03d.png output.mp4
 
+
 if [ -z "$1" ] || [ -z "$2" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ];then
 
   echo "
@@ -30,4 +31,4 @@ Example:
 
 fi
 
-exec ffmpeg -v error -framerate "${3:-24}" -i "$1" "$2"
+ffmpeg -v error -framerate "${3:-24}" -i "$1" "$2"

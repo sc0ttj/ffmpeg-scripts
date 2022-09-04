@@ -18,7 +18,7 @@ function usage {
   echo
   echo "Example:"
   echo
-  echo "  # split a move into 5 minute chunks:"
+  echo "  # split a movie into 5 minute chunks:"
   echo
   echo "  video_split.sh movie.mov 300 clip-%04d.mov"
   echo

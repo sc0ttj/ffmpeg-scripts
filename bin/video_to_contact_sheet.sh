@@ -41,7 +41,7 @@ if [ ! -z "$3" ];then
   layout="${3}"
 fi
 
-exec ffmpeg \
+ffmpeg \
   -v error \
   -row-mt 1 \
   -threads 0 \

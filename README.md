@@ -4,7 +4,42 @@ A collection of simple scripts that use `ffmpeg`.
 
 Status: WIP
 
+## TODO
+
+All scripts should:
+
+1. take their input from STDIN, or a file (if specified)
+2. write to STDOUT, or to a file (if specified)
+3. respect the same ENV vars
+  - INPUT_FILE (`-i`|STDIN)
+  - PRESET (`-preset`)
+  - QUALITY (`-crf`)
+  - FONT (`-fontfile`)
+  - OUTPUT_VCODEC (`-c:v`)
+  - OUTPUT_ACODEC (`-c:a`)
+  - OUTPUT_DIMENSIONS
+  - OUTPUT_ASPECT_RATIO
+  - OUTPUT_FILE
+4. command-line options override ENV vars
+5. fallback to useful default settings, and where possible:
+  - use `-c copy`, to avoid transcoding (if appropriate)
+  - copy/keep all streams by default (see when to use `-map 0`)
+6. contain full documentation in each script
+
+All transcoding should default to:
+
+1. h264 video and AAC audio
+2. fast settings (such as `-preset fastest` and `crf 18`)
+
 ## Tips
+
+### Generate your own SRT captions (subtitles)
+
+If your video does not have a captions file, you can upload your MP4 video to 
+YouTube (privately listed, if needed) and have YouTube generate automated 
+captions.
+
+Then download the resulting SRT file.
 
 ### Audio Visualizations
 
@@ -36,11 +71,16 @@ Produces:
 
 - [FFmpeg Manual](https://ffmpeg.org/ffmpeg.html)
 - [FFmpeg-A-short-Guide](https://github.com/term7/FFmpeg-A-short-Guide)
+- [FFmpeg by Example](https://www.ffmpegbyexample.com/)
 - [FFmpeg-audio-visualization-tricks](https://lukaprincic.si/development-log/ffmpeg-audio-visualization-tricks) - lots of examples
 - [Trac Wiki on FFmpeg](https://trac.ffmpeg.org/wiki) (very detailed)
 - [ffmprovisr](https://amiaopensource.github.io/ffmprovisr/) - categorised examples
 - [FFmpeg examples](https://hhsprings.bitbucket.io/docs/programming/examples/ffmpeg/index.html) (very detailed)
+- [FFmpeg cheat sheet](https://gist.github.com/steven2358/ba153c642fe2bb1e47485962df07c730) (examples of speed vs output quality)
+- [OpenSource.com - ffmpeg-convert-media-file-formats](https://opensource.com/article/17/6/ffmpeg-convert-media-file-formats)
 - [StackOverflow - generating-a-waveform-using-ffmpeg](https://stackoverflow.com/questions/32254818/generating-a-waveform-using-ffmpeg)
+- [Adding subtitles to video](https://gist.github.com/spirillen/af307651c4261383a6d651038a82565d)
+- [Adding multiple subtitles to a video](https://gist.github.com/kurlov/32cbe841ea9d2b299e15297e54ae8971?permalink_comment_id=4021455#gistcomment-4021455)
 
 ## Other repos
 

@@ -32,7 +32,7 @@ before running this script."
   exit 1
 fi
 
-exec ffmpeg -v error -threads 0 -i "$1" -r 24 -g 48 -keyint_min 48 -sc_threshold 0 -c:v libx264 \
+ffmpeg -v error -threads 0 -i "$1" -r 24 -g 48 -keyint_min 48 -sc_threshold 0 -c:v libx264 \
  -s:v:0 960x540 -b:v:0 2400k -maxrate:v:0 2640k -bufsize:v:0 2400k \
  -s:v:1 1920x1080 -b:v:1 5200k -maxrate:v:1 5720k -bufsize:v:1 5200k \
  -s:v:2 1280x720 -b:v:2 3100k -maxrate:v:2 3410k -bufsize:v:2 3100k \

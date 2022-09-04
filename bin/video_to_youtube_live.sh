@@ -17,7 +17,7 @@ Usage:
   exit 1
 fi
 
-exec ffmpeg \
+ffmpeg \
   -v error \
   -re -i "$1" \
   -c:v libx264 \

@@ -37,7 +37,7 @@ crop_settings="$(ffmpeg -v error \
 
 echo "Crop settings: '$crop_settings'"
 
-exec ffmpeg -v error -mt-row 1 \
+ffmpeg -v error -mt-row 1 \
   -threads 0 \
   -i "$input_file" \
   -vf "$crop_settings" \

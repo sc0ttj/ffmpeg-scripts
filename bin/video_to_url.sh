@@ -22,7 +22,7 @@ echo ffmpeg -v error -threads 0 -re -i "$1" -c:v libx264 -tune zerolatency \
   -bufsize 6000k -pix_fmt yuv420p -g 50 -c:a aac -b:a 160k -ac 2 \
   -ar 44100 -f flv "$2"
 
-exec ffmpeg -v error -threads 0 -re -i "$1" -c:v libx264 -tune zerolatency \
+ffmpeg -v error -threads 0 -re -i "$1" -c:v libx264 -tune zerolatency \
   -preset veryfast -b:v 3000k -maxrate 3000k \
   -bufsize 6000k -pix_fmt yuv420p -g 50 -c:a aac -b:a 160k -ac 2 \
   -ar 44100 -f flv "$2"

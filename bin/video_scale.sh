@@ -66,7 +66,7 @@ case "${2:-1080p}" in
     ;;
 esac
 
-exec ffmpeg -v error -i "$1" -row-mt 1 -threads 0 \
+ffmpeg -v error -i "$1" -row-mt 1 -threads 0 \
   -vf scale="$resolution":flags=lanczos \
   -c:v libx264 \
   -profile:v baseline -level 3.0 \

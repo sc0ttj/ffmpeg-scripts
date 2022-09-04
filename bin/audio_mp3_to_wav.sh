@@ -16,6 +16,6 @@ Usage:
   exit 1
 fi
 
-exec ffmpeg -v error \
+ffmpeg -v error \
   -threads -i "$1" \
   -acodec pcm_s16le -ac 1 -ar 16000 "${1%.mp3}.wav"

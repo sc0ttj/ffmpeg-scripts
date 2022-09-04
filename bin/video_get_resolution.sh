@@ -14,7 +14,7 @@ Usage :
 fi
 
 
-exec ffprobe \
+ffprobe \
   -v error \
   -select_streams v:0 \
   -show_entries stream=height,width \

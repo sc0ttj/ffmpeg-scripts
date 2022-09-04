@@ -32,4 +32,4 @@ size="$1"
 echo ffmpeg -i "$input" -fs "$size" -c copy "${input%.*}-${size}${input##*.}"
 echo
 
-exec ffmpeg -i "$input" -fs "$size" -c copy "${input%.*}-${size}${input##*.}"
+ffmpeg -i "$input" -fs "$size" -c copy "${input%.*}-${size}${input##*.}"

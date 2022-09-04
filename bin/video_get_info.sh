@@ -8,6 +8,8 @@ such as codecs, bitrate, frame rate, etc
 
 Usage:
 
-  video_get_info.sh path/to/file.mp4" && exit 1
+  video_get_info.sh path/to/file.mp4
+  video_get_info.sh https://server:port/stream
+" && exit 1
 
-exec ffprobe -v error -print_format flat -show_streams -show_format "$1"
+ffprobe -v error -print_format flat -show_streams -show_format "$1"

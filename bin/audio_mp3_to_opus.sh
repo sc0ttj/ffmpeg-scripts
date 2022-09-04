@@ -19,7 +19,7 @@ fi
 bitrate="-b:a 32k"
 [ "$2" != "" ] && bitrate="-b:a $2"
 
-exec ffmpeg -i "$1" \
+ffmpeg -i "$1" \
   -c:a libopus \
   $bitrate \
   -vbr on \

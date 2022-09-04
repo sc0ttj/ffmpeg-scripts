@@ -24,7 +24,7 @@ max_volume_line="$(echo "$max_volume_line" | grep -Po "max_volume:\s+\S+\s+dB")"
 volume="$(echo "$max_volume_line" | grep -Po "[-|+]?\d+\.?\d*")"
 
 # apply the gain
-exec ffmpeg -v error \
+ffmpeg -v error \
   -threads 0 \
   -i "$1" \
   -af "volume=${volume}" \

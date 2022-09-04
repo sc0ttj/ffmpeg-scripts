@@ -78,7 +78,7 @@ else
     -f flv "$1"
 
   # run command
-  exec ffmpeg -f x11grab -video_size $screen_size -framerate 24 -i :0.0 \
+  ffmpeg -f x11grab -video_size $screen_size -framerate 24 -i :0.0 \
     -f v4l2 -video_size 320x240 -framerate 24 -i $webcam \
     -f alsa -ac 2 -i hw:0,0 -filter_complex \
     "[0:v]scale=1024:-2,setpts=PTS-STARTPTS[bg]; \

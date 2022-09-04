@@ -12,7 +12,7 @@ Usage:
   exit 1
 fi
 
-exec ffmpeg \
+ffmpeg \
   -v error \
   -i "$1"   \
   -row-mt 1 -threads 0 \

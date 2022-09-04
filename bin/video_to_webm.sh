@@ -13,7 +13,7 @@ fi
 if [ "$2" = "lossless" ];then
 
   # lossless
-  exec ffmpeg \
+  ffmpeg \
     -v error \
     -i "$1" \
     -row-mt 1 \
@@ -26,7 +26,7 @@ if [ "$2" = "lossless" ];then
 else
 
   # constant bitrate
-  exec ffmpeg \
+  ffmpeg \
   -v error \
   -i "$1" \
   -row-mt 1 \

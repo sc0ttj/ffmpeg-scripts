@@ -37,7 +37,7 @@ esac
 output_width="${resolution//x*/}"
 output_height="${resolution//*x}"
 
-exec ffmpeg \
+ffmpeg \
   -v error \
   -row-mt 1 \
   -threads 0 \
