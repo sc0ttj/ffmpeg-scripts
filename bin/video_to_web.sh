@@ -28,7 +28,7 @@ This script will source AND create files in the \$PWD,
 which is $PWD.
 
 You should 'cd' to the folder containing your source
-files before running this script.
+videos before running this script.
 "
 
   exit 1

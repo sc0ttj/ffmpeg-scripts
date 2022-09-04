@@ -4,7 +4,7 @@
 
 # Usage:
 #
-# video_scale file.mp4 <scale> <preset>
+# video_scale <file> <scale> <preset>
 #
 # Examples:
 #
@@ -19,7 +19,7 @@
 
 Usage:
 
-  video_scale file.mp4 <scale> <preset>
+  video_scale <file> <scale> <preset>
 
 <scale>   can be: 480p, 720p, 1080p, 4k, 10%, 50%, 200% (etc)
 <preset> can be: ultrafast, superfast, veryfast, faster, fast, lossless, medium, slow, slower, veryslow
@@ -66,10 +66,24 @@ case "${2:-1080p}" in
     ;;
 esac
 
+# get file name without extension
+filename="${1%.*}"
+# get extension only
+ext="${1##*.}"
+
 ffmpeg -v error -i "$1" -row-mt 1 -threads 0 \
   -vf scale="$resolution":flags=lanczos \
-  -c:v libx264 \
-  -profile:v baseline -level 3.0 \
+  -c:v copy -profile:v baseline -level 3.0 \
   $preset \
   -movflags +faststart \
-  "${1}_${2}.mp4"
+  "${filename}_${2}.${ext}"
+
+
+# Alternative cmd: forces mp4(x264)
+# ffmpeg -v error -i "$1" -row-mt 1 -threads 0 \
+  # -vf scale="$resolution":flags=lanczos \
+  # -c:v libx264 \
+  # -profile:v baseline -level 3.0 \
+  # $preset \
+  # -movflags +faststart \
+  # "${filename}_${2}.mp4"

@@ -9,15 +9,18 @@ file with 4:3 aspect ratio, with correct pillar-boxing.
 
 Usage:
 
-  video_pad_16:9_to_4:3.sh file.mp4"
+  video_pad_16:9_to_4:3.sh <file>"
   exit 1
 fi
 
+# get file name without extension
+filename="${1%.*}"
+# get extension only
+ext="${1##*.}"
+
 ffmpeg \
   -v error \
-  -row-mt 1 \
-  -threads 0 \
   -i "$1" \
   -filter:v "pad=iw:iw*3/4:(ow-iw)/2:(oh-ih)/2" \
   -c:a copy \
-  "padded_${1}"
+  "${filename}_padded.${ext}"

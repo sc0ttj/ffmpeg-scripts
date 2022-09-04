@@ -7,15 +7,19 @@ if [ ! -f "$1" ] || [ "$(echo "$1" | grep -E '^http|^ftp|^rtmp|^udp|^mms|^file|^
 Convert a video to a Youtube 360 video.
 
 Usage:
-  video_to_youtube_360.sh file.mp4
+  video_to_youtube_360.sh <file>
 "
   exit 1
 fi
 
+# get file name without extension
+filename="${1%.*}"
+# get extension only
+ext="${1##*.}"
+
 ffmpeg \
   -v error \
   -i "$1"   \
-  -row-mt 1 -threads 0 \
   -vf scale=3840x2160,setdar=16:9 \
   -r 30 \
   -c:v libx265 \
@@ -23,4 +27,4 @@ ffmpeg \
   -pix_fmt yuv420p \
   -c:a aac \
   -b:a 192K \
-  "$1"_360.mp4
+  "$filename"_yt360.mp4

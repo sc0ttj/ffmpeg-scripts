@@ -31,6 +31,10 @@ do
 done
 IFS="OLD_IFS"
 
+# outfile
+outfile="${2//.mp4/}"
+outfile="${outfile:-instagram_video}".mp4
+
 # ffmpeg command info:
 #
 # -framerate 1/3      - output 1 frame every 3 seconds (for 20 slides that equals a 60 second video)
@@ -57,7 +61,7 @@ ffmpeg \
   -crf 25 \
   -pix_fmt yuv420p \
   -movflags +faststart \
- "${2:-instagram_video}".mp4 \
+ "$outfile" \
  -start_number 1
 
 rm /tmp/insta_slide*

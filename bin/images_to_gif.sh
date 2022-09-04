@@ -12,15 +12,15 @@ Join a set of images into an animated GIF.
 
 Usage:
 
-  images_to_gif.sh <pattern> <file>
+  images_to_gif.sh <image-pattern> <gif-name>
 
 The 'pattern' parameter must match against some image files.
 
 Example:
 
-  # put image-0001.png, image-0002.png (etc) into a GIF:
+  # put image-001.png, image-002.png (etc) into a GIF:
 
-  images_to_gif.sh image-%04d.png output.gif
+  images_to_gif.sh  image-%03d.png  output.gif
 "
   exit 1
 

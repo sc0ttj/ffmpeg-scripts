@@ -7,7 +7,7 @@ if [ ! -f "$1" ] || [ -z "$2" ];then
 
 Usage:
 
-  video_pad_to_size.sh file.mp4 <size>
+  video_pad_to_size.sh <file> <size>
 
 <size> must be one of the following:
 
@@ -15,7 +15,7 @@ Usage:
 - 720p
 - 1080p
 - 4k
-- the pixel dimensions of the video (w x h)
+- the pixel dimensions of the video (wxh, like 640x400)
 
 Examples:
 
@@ -37,11 +37,14 @@ esac
 output_width="${resolution//x*/}"
 output_height="${resolution//*x}"
 
+# get file name without extension
+filename="${1%.*}"
+# get extension only
+ext="${1##*.}"
+
 ffmpeg \
   -v error \
-  -row-mt 1 \
-  -threads 0 \
   -i "$1" \
   -filter:v "pad=${output_width}:${output_height}:(ow-iw)/2:(oh-ih)/2" \
   -c:a copy \
-  "padded_${1}"
+  "${filename}_padded.${ext}"

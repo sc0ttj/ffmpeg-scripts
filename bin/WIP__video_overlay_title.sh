@@ -8,8 +8,8 @@ APPVER="0.1"
 while [ $# != 0 ]; do # get all options ($# means all options)
   I=1
   while [ ! -z $# -a $I -le `echo $# | wc -c` ]; do
-    # enable passing multiple pkgs separated by comma, space,
-    # works with or without double quotes around pkgs
+    # enable passing multiple opts separated by comma, space,
+    # works with or without double quotes around opts
     opt="`shift; echo "$@"`"
     opt="${opt//,/ }"
     opt="${opt//|/ }"
@@ -61,7 +61,7 @@ while [ $# != 0 ]; do # get all options ($# means all options)
           echo "  -fontsize '24'         \\" # 24px
           echo "  -fontcolor 'white'     \\" # white
           echo "  -boxcolor 'black'      \\" # black
-          echo "  -boxopacity '0.5'      \\" # 0.5 is 50% opacity/transparency
+          echo "  -boxopacity '0.5'      \\" # 0.5 is 50% opacity
           echo "  -boxborder '5'         \\" # 5 pixels
           echo "  -position 'bottom'     \\" # where to place title
           exit 0

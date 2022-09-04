@@ -7,7 +7,7 @@
 
 # Usage :
 #
-#  video_autocrop_borders.sh file.mp4
+#  video_autocrop_borders.sh <file>
 
 if [ ! -f "$1" ];then
   echo "
@@ -18,7 +18,7 @@ uses them to generate a cropped video, without the borders.
 
 Usage :
 
-  video_autocrop_borders.sh file.mp4
+  video_autocrop_borders.sh <file>
 "
   exit 1
 fi

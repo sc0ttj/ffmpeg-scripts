@@ -8,7 +8,7 @@ Convert a video to a thumbnail image.
 
 Usage:
 
-  video_to_image.sh file.mp4 position outfile
+  video_to_image.sh <file> <position> <outfile>
 
 Example:
 

@@ -13,7 +13,7 @@ of video capture thumbnails arranged on a grid.
 
 Usage:
 
-  video_to_contact_sheet.sh file.mp4 [thumb-size] [layout]
+  video_to_contact_sheet.sh <file> [thumb-size] [layout]
 
 Here are the default thumbnail size and layout settings:
 
@@ -43,10 +43,8 @@ fi
 
 ffmpeg \
   -v error \
-  -row-mt 1 \
-  -threads 0 \
   -ss 00:00:01 \
   -i "$1" \
   -filter:v "select=not(mod(n\,1000)),scale=${size},tile=${layout}" \
-  "$1"_contact_sheet.png
+  "${1%.*}"_contact_sheet.png
 

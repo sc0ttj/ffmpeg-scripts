@@ -12,7 +12,7 @@ Get your YouTube API key at https://www.youtube.com/live_dashboard
 
 Usage:
 
-  video_to_youtube_live.sh file.mp4 YOUR_API_KEY
+  video_to_youtube_live.sh <file> <YOUR_API_KEY>
 "
   exit 1
 fi
@@ -28,5 +28,4 @@ ffmpeg \
   -bsf:a aac_adtstoasc \
   -bufsize 2100k \
   -f flv \
-  -row-mt 1 -threads 0 \
   rtmp://a.rtmp.youtube.com/live2/"$2"

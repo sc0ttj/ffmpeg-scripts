@@ -20,4 +20,4 @@ ffmpeg -i "$1" \
   -ab "${2:-320k}" \
   -map_metadata 0 \
   -id3v2_version 3 \
-  "$1".mp3
+  "${1%.*}".mp3

@@ -12,9 +12,10 @@ set -e
 # Usage
 if [ $# -eq 0 ]; then
   cat <<-EOF
-  Usage: $0 infile outfile
   Convert a gif to mp4 with ffmpeg, looping it enough times to ensure it meets
   Instagrams minimum video length limit.
+
+  Usage: $(basename $0) infile outfile
 
     infile  | A valid gif file to convert. If given a URI, this script will
               try to download it for you and then convert it.

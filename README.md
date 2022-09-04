@@ -26,11 +26,6 @@ All scripts should:
   - copy/keep all streams by default (see when to use `-map 0`)
 6. contain full documentation in each script
 
-All transcoding should default to:
-
-1. h264 video and AAC audio
-2. fast settings (such as `-preset fastest` and `crf 18`)
-
 ## Tips
 
 ### Generate your own SRT captions (subtitles)
@@ -77,6 +72,8 @@ Produces:
 - [ffmprovisr](https://amiaopensource.github.io/ffmprovisr/) - categorised examples
 - [FFmpeg examples](https://hhsprings.bitbucket.io/docs/programming/examples/ffmpeg/index.html) (very detailed)
 - [FFmpeg cheat sheet](https://gist.github.com/steven2358/ba153c642fe2bb1e47485962df07c730) (examples of speed vs output quality)
+- [Encoding video](https://gist.github.com/Vestride/278e13915894821e1d6f) (examples of web codec support, vp9 best settings, etc)
+- [Another FFmpeg cheat sheet](https://gist.github.com/protrolium/e0dbd4bb0f1a396fcb55)
 - [OpenSource.com - ffmpeg-convert-media-file-formats](https://opensource.com/article/17/6/ffmpeg-convert-media-file-formats)
 - [StackOverflow - generating-a-waveform-using-ffmpeg](https://stackoverflow.com/questions/32254818/generating-a-waveform-using-ffmpeg)
 - [Adding subtitles to video](https://gist.github.com/spirillen/af307651c4261383a6d651038a82565d)

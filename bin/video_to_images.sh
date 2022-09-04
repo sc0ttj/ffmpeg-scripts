@@ -8,7 +8,7 @@ Convert a video to a series of JPEG images.
 
 Usage:
 
-  video_to_images.sh file.mp4 [framerate]
+  video_to_images.sh <file> [framerate]
 
 Examples:
 
@@ -33,8 +33,7 @@ fi
 ffmpeg \
   -v error \
   -i "$1"   \
-  -row-mt 1 -threads 0 \
   -qscale:v 2 \
   -vf fps="${framerate:-24}" \
   -vsync 0 \
-  "$1"_frame_%d.jpg
+  "${1%.*}"_frame_%d.jpg

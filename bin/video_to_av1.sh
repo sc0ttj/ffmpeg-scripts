@@ -39,7 +39,7 @@ if [ "$2" = "1" ] || [ -z "$2" ];then
     -pix_fmt yuv420p -movflags +faststart \
     -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" \
     -strict experimental \
-    "$1".av1.mp4
+    "${1%.*}".av1.mp4
 else
   # Run two passes:
   # Pass 1
@@ -50,5 +50,5 @@ else
   ## Pass 2
   ffmpeg -v error -i "$1" -pix_fmt yuv420p -movflags faststart \
     -c:v libaom-av1 -b:v 200k -filter:v scale=720:-2 -strict experimental \
-    -cpu-used 1 -tile-columns 2 -row-mt 1 -threads 0 -pass 2 "$1"_av1.mp4
+    -cpu-used 1 -tile-columns 2 -row-mt 1 -threads 0 -pass 2 "${1%.*}"_av1.mp4
 fi

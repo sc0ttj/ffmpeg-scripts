@@ -9,15 +9,18 @@ file with 16:9 aspect ratio, with correct letter-boxing.
 
 Usage:
 
-  video_pad_4:3_to_16:9.sh file.mp4"
+  video_pad_4:3_to_16:9.sh <file>"
   exit 1
 fi
 
+# get file name without extension
+filename="${1%.*}"
+# get extension only
+ext="${1##*.}"
+
 ffmpeg \
   -v error \
-  -row-mt 1 \
-  -threads 0 \
   -i "$1" \
   -filter:v "pad=ih*16/9:ih:(ow-iw)/2:(oh-ih)/2" \
   -c:a copy \
-  "padded_${1}"
+  "${filename}_padded.${ext}"

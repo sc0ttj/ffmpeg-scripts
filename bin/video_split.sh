@@ -45,22 +45,22 @@ DURATION_S=$(echo "$DURATION_HMS" | cut -d ':' -f 3 | cut -d '.' -f 1)
 let "DURATION = ( DURATION_H * 60 + DURATION_M ) * 60 + DURATION_S"
 
 if [ "$DURATION" = '0' ] ; then
-        echo "Invalid input video"
-        usage
-        exit 1
+  echo "Invalid input video"
+  usage
+  exit 1
 fi
 
 if [ "$CHUNK_LEN" = "0" ] ; then
-        echo "Invalid chunk size"
-        usage
-        exit 2
+  echo "Invalid chunk size"
+  usage
+  exit 2
 fi
 
 if [ -z "$OUT_FILE_FORMAT" ] ; then
-        FILE_EXT=$(echo "$IN_FILE" | sed 's/^.*\.\([a-zA-Z0-9]\+\)$/\1/')
-        FILE_NAME=$(echo "$IN_FILE" | sed 's/^\(.*\)\.[a-zA-Z0-9]\+$/\1/')
-        OUT_FILE_FORMAT="${FILE_NAME}-%04d.${FILE_EXT}"
-        echo "Using default output file format : $OUT_FILE_FORMAT"
+  FILE_EXT=$(echo "$IN_FILE" | sed 's/^.*\.\([a-zA-Z0-9]\+\)$/\1/')
+  FILE_NAME=$(echo "$IN_FILE" | sed 's/^\(.*\)\.[a-zA-Z0-9]\+$/\1/')
+  OUT_FILE_FORMAT="${FILE_NAME}-%04d.${FILE_EXT}"
+  echo "Using default output file format : $OUT_FILE_FORMAT"
 fi
 
 N='1'
@@ -68,10 +68,10 @@ OFFSET='0'
 let 'N_FILES = DURATION / CHUNK_LEN + 1'
 
 while [ "$OFFSET" -lt "$DURATION" ] ; do
-        OUT_FILE=$(printf "$OUT_FILE_FORMAT" "$N")
-        echo "writing $OUT_FILE ($N/$N_FILES)..."
-        ffmpeg -hide_banner -i "$IN_FILE" -vcodec copy -acodec copy -ss "$OFFSET" -t "$CHUNK_LEN" "$OUT_FILE"
-        let "N = N + 1"
-        let "OFFSET = OFFSET + CHUNK_LEN"
+  OUT_FILE=$(printf "$OUT_FILE_FORMAT" "$N")
+  echo "writing $OUT_FILE ($N/$N_FILES)..."
+  ffmpeg -hide_banner -i "$IN_FILE" -vcodec copy -acodec copy -ss "$OFFSET" -t "$CHUNK_LEN" "$OUT_FILE"
+  let "N = N + 1"
+  let "OFFSET = OFFSET + CHUNK_LEN"
 done
 
